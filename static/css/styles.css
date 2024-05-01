@@ -1,0 +1,39 @@
+/* Estilo para el contenedor del formulario */
+.form-container {
+    width: 100%; /* Ocupar todo el ancho disponible */
+    max-width: 600px; /* Establecer un ancho máximo para evitar que el formulario se estire demasiado */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centra el contenido del contenedor */
+}
+
+/* Estilo para los campos del formulario */
+.form-control {
+    width: 100%;
+    margin-bottom: 10px; /* Espacio entre los campos */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Estilo para el botón de envío */
+/* Estilo para el botón de envío */
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745; /* Cambiar el color de fondo a verde */
+    color: #fff; /* Cambiar el color del texto a blanco */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #218838; /* Cambiar el color de fondo a un tono más oscuro al pasar el ratón */
+}
