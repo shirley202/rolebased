@@ -12,7 +12,67 @@
         <h1>Registrar Clase</h1>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            <div class="form-group">
+                <label for="id_carrera">Carrera:</label>
+                {{ form.carrera }}
+            </div>
+            <div class="form-group">
+                <label for="id_curso">Curso:</label>
+                {{ form.curso }}
+            </div>
+            <div class="form-group">
+                <label for="id_semestre">Semestre:</label>
+                {{ form.semestre }}
+            </div>
+            <div class="form-group">
+                <label for="id_materia">Materia:</label>
+                {{ form.materia }}
+            </div>
+            <div class="form-group">
+                <label for="id_numero_clase">Número de Clase:</label>
+                {{ form.numero_clase }}
+            </div>
+            <div class="form-group">
+                <label for="id_fecha">Fecha:</label>
+                {{ form.fecha }}
+            </div>
+            <div class="form-group">
+                <label for="id_hora_inicio">Hora de Inicio:</label>
+                {{ form.hora_inicio }}
+            </div>
+            <div class="form-group">
+                <label for="id_hora_fin">Hora de Fin:</label>
+                {{ form.hora_fin }}
+            </div>
+            <div class="form-group">
+                <label for="id_tipo_clase">Tipo de Clase:</label>
+                {{ form.tipo_clase }}
+            </div>
+            <div class="form-group">
+                <label for="id_numero_alumno">Número de Alumnos:</label>
+                {{ form.numero_alumno }}
+            </div>
+            <div class="form-group">
+                <label for="id_metodologia">Metodología:</label>
+                {{ form.metodologia }}
+            </div>
+            <div class="form-group">
+    <label for="id_unidades">Unidades:</label>
+    <select name="unidades" id="id_unidades" multiple class="form-control">
+        {% for unidad in form.unidades.field.queryset %}
+            <option value="{{ unidad.id }}">{{ unidad.nombre }}</option>
+        {% endfor %}
+    </select>
+</div>
+<div class="form-group">
+    <label for="id_contenidos">Contenidos:</label>
+    <select name="contenidos" id="id_contenidos" multiple class="form-control">
+        {% for contenido in form.contenidos.field.queryset %}
+            <option value="{{ contenido.id }}">{{ contenido.nombre }}</option>
+        {% endfor %}
+    </select>
+</div>
+
             <button type="submit" class="btn-submit">Registrar Clase</button>
         </form>
     </div>

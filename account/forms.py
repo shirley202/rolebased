@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User, Clase
+from .models import User, Clase, Contenido, Unidad
 
 class LoginForm(forms.Form):
     username = forms.CharField(
@@ -54,22 +54,21 @@ class SignUpForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2', 'is_admin', 'is_docente', 'is_funcionario')
 
 class ClaseForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        # Establecer el valor predeterminado para el campo 'carrera'
-        self.fields['carrera'].initial = 'Ingeniería en Informática'
+    unidades = forms.ModelMultipleChoiceField(queryset=Unidad.objects.all(), widget=forms.CheckboxSelectMultiple(attrs={'class': 'form-check-input'}), required=True)
+    contenidos = forms.ModelMultipleChoiceField(queryset=Contenido.objects.all(), widget=forms.CheckboxSelectMultiple(attrs={'class': 'form-check-input'}), required=True)
+
     class Meta:
         model = Clase
-        fields = ('carrera', 'curso', 'materia', 'unidad', 'contenido', 'numero_clase', 'fecha', 'hora_inicio', 'hora_fin', 'tipo_clase')
+        fields = ('carrera', 'curso','semestre', 'materia', 'numero_clase', 'fecha', 'hora_inicio', 'hora_fin', 'tipo_clase','numero_alumno','metodologia','unidades','contenidos')
         widgets = {
-            'carrera': forms.TextInput(attrs={'class': 'form-control'}),
             'curso': forms.Select(attrs={'class': 'form-control'}),
+            'semestre': forms.Select(attrs={'class': 'form-control'}),
             'materia': forms.Select(attrs={'class': 'form-control'}),
-            'unidad': forms.Select(attrs={'class': 'form-control'}),
-            'contenido': forms.Select(attrs={'class': 'form-control'}),
             'numero_clase': forms.NumberInput(attrs={'class': 'form-control'}),
             'fecha': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'hora_inicio': forms.TimeInput(attrs={'class': 'form-control', 'type': 'time'}),
             'hora_fin': forms.TimeInput(attrs={'class': 'form-control', 'type': 'time'}),
             'tipo_clase': forms.Select(attrs={'class': 'form-control'}),
+            'numero_alumno': forms.NumberInput(attrs={'class': 'form-control'}),
+            'metodologia': forms.TextInput(attrs={'class': 'form-control'}),
         }
