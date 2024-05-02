@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informes de Clases Registradas</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<style>
+    .inline-list {
+    display: inline-block;
+}
+
+.inline-list li {
+    display: inline;
+    margin-right: 10px;
+}
+
+
+</style>
+<body>
+    <div class="header">
+        <h1>Informes de Clases Registradas</h1>
+    </div>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Carrera</th>
+                    <th>Curso</th>
+                    <th>Semestre</th>
+                    <th>Materia</th>
+                    <th>Unidades</th>
+                    <th>Contenidos</th>
+                    <th>Numero de clase</th>
+                    <th>Fecha</th>
+                    <th>Hora de Inicio</th>
+                    <th>Hora de fin</th>
+                    <th>Tipo de clase</th>
+                    <th>Numero de alumnos</th>
+                    <th>Metodologia</th>
+
+
+                    <!-- Agrega más columnas según tus necesidades -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for clase in clases %}
+                <tr>
+                    <td>{{ clase.carrera }}</td>
+                    <td>{{ clase.curso }}</td>
+                    <td>{{ clase.semestre }}</td>
+                    <td>{{ clase.materia }}</td>
+                    <td>{{ clase.unidades.all|join:', ' }}</td>
+<td>{{ clase.contenidos.all|join:', ' }}</td>
+
+                    <td>{{ clase.numero_clase }}</td>
+                    <td>{{ clase.fecha }}</td>
+                    <td>{{ clase.hora_inicio }}</td>
+                    <td>{{ clase.hora_fin }}</td>
+                    <td>{{ clase.tipo_clase}}</td>
+                    <td>{{ clase.numero_alumno }}</td>
+                    <td>{{ clase.metodologia }}</td>
+
+                    <!-- Agrega más columnas según tus necesidades -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="footer">
+        <a href="{% url 'docente' %}">Volver a la página de registro</a>
+    </div>
+</body>
+</html>

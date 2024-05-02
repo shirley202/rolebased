@@ -91,7 +91,8 @@ h2 {
 .content .btn {
   height: 54px;
   padding-left: 30px;
-  padding-right: 30px; }
+  padding-right: 30px;
+}
 
 .content .forgot-pass {
   position: relative;
@@ -206,3 +207,21 @@ h2 {
 .control--checkbox input:disabled:checked ~ .control__indicator {
   background-color: #7e0cf5;
   opacity: .2; }
+.btn-primary {
+  background-color: #3069B1; /* Color de fondo */
+  color: #fff; /* Color del texto */
+}
+
+/* Cambiar el color de fondo de los botones al pasar el mouse */
+.btn-primary:hover {
+  background-color: #214680; /* Un tono más oscuro al pasar el mouse */
+}
+.login-content {
+            margin-top: 50px; /* Margen superior para separar el contenido del formulario del encabezado */
+        }
+.create-user-text {
+            font-size: 24px; /* Tamaño de fuente */
+            font-weight: bold; /* Peso de la fuente */
+            margin-bottom: 20px; /* Margen inferior */
+            color: #333; /* Color del texto */
+        }

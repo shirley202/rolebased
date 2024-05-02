@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registros de Clases</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+       <style>
+        /* Estilo para el título */
+        h1 {
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            text-transform: uppercase;
+            background-color: #3069B1; /* Color de fondo azul */
+            margin-bottom: 20px; /* Espacio entre el título y la tabla */
+        }
+
+        /* Estilo para la tabla */
+        table {
+    color: #000; /* Color de texto negro */
+    font-size: 14px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: #f0f0f0; /* Color de fondo gris claro */
+    width: 1200%; /* Cambia el ancho de la tabla según sea necesario */
+    max-width: 1400px; /* Establece un ancho máximo */
+    margin: 0 auto; /* Centra la tabla en la página */
+    margin-bottom: 20px; /* Espacio entre el título y la tabla */
+}
+
+        /* Estilos para las celdas del encabezado */
+        th {
+    padding: 10px; /* Espacio alrededor del texto */
+    font-weight: 700; /* Grosor de la fuente */
+    text-transform: uppercase; /* Transformar el texto a mayúsculas */
+    background-color: #ccc; /* Color de fondo gris */
+    white-space: normal; /* Permitir el ajuste automático del texto */
+            max-width: 2000px; /* Ancho máximo de las celdas */
+    min-width: 1000px; /* Ancho mínimo de las celdas */
+
+
+}
+        /* Estilos para las celdas de la tabla */
+        td {
+            padding: 15px;
+            border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+        }
+
+        tbody tr {
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Transición suave */
+        }
+        tbody tr:hover {
+            background: rgba(48, 105, 177, 0.4); /* Cambiar a azul al pasar el ratón */
+        }
+        .header {
+            background-color: #2b2b2b; /* Color de fondo */
+            padding: 30px; /* Ajusta el margen interno */
+            text-align: center; /* Alineación del texto en el centro */
+            color: #fff; /* Color del texto */
+            height: 115px; /* Altura del encabezado */
+            display: flex; /* Usa flexbox */
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center; /* Centra verticalmente
+        }
+
+        .container {
+            margin-top: 5px; /* Margen superior para separar el contenido del formulario del encabezado */
+        }
+        th {
+        font-size: 10px; /* Ajusta el tamaño del texto */
+        padding: 15px; /* Ajusta el padding para agregar espacio alrededor del texto */
+    }
+
+
+
+        .logo-img {
+            max-height: 100px; /* Altura máxima de la imagen */
+            width: auto; /* Ancho automático para mantener la proporción */
+            margin-right: 500px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <img src="{% static 'images/logotipo.png' %}" alt="Logo" class="logo-img">
+</div>
+    <div class="container">
+        <h1>Asistencia y Desarrollo de Clases del Docente</h1>
+        <table class="table" id="clases-table" >
+            <thead>
+                <tr>
+                    <th>Docente</th>
+                    <th>Carrera</th>
+                    <th>Curso</th>
+                    <th>Semestre</th>
+                    <th>Materia</th>
+                    <th>Unidad</th> <!-- Nueva columna para mostrar la unidad -->
+                    <th>Contenido</th> <!-- Nueva columna para mostrar el contenido -->
+                    <th>Número de Clase</th>
+                    <th>Fecha</th>
+                    <th>Hora de Inicio</th>
+                    <th>Hora de Fin</th>
+                    <th>Tipo de Clase</th>
+                    <th>Número de Alumnos</th>
+                    <th>Metodología</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for clase in clases %}
+                <tr>
+                    <td>{{ clase.usuario.first_name }} {{ clase.usuario.last_name }}</td>
+                    <td>{{ clase.carrera }}</td>
+                    <td>{{ clase.curso }}</td>
+                    <td>{{ clase.semestre }}</td>
+                    <td>{{ clase.materia }}</td>
+                    <td>
+                        {% for unidad in clase.unidades.all %}
+                            {{ unidad.nombre }}
+                            {% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td> <!-- Acceder al nombre de la unidad -->
+                    <td>
+                        {% for contenido in clase.contenidos.all %}
+                            {{ contenido.nombre }}
+                            {% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>{{ clase.numero_clase }}</td>
+                    <td>{{ clase.fecha }}</td>
+                    <td>{{ clase.hora_inicio }}</td>
+                    <td>{{ clase.hora_fin }}</td>
+                    <td>{{ clase.tipo_clase }}</td>
+                    <td>{{ clase.numero_alumno }}</td>
+                    <td>{{ clase.metodologia }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

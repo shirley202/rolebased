@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Clase</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+</head>
+<style>
+    .header {
+    background-color: #2b2b2b; /* Color de fondo */
+    padding: 30px; /* Ajusta el margen interno */
+    text-align: center; /* Alineación del texto en el centro */
+    color: #fff; /* Color del texto */
+    height: 140px; /* Altura del encabezado */
+    width: 100%; /* Ancho del encabezado al 100% */
+    display: flex; /* Usa flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+
+     .logo-img {
+            max-height: 100px; /* Altura máxima de la imagen */
+            width: auto; /* Ancho automático para mantener la proporción */
+            margin-right: 500px;
+        }
+     body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2b2b2b;
+}
+
+.summary {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    list-style-type: disc;
+    padding: 0;
+}
+
+li {
+         margin-bottom: 10px;
+        text-align: justify; /* Justifica el texto dentro de cada elemento <li> */
+        display: flex; /* Usa flexbox */
+        align-items: center; /* Centra verticalmente */
+    }
+
+strong {
+    font-weight: bold;
+}
+.inline-list {
+    display: inline-block;
+}
+
+.inline-list li {
+    display: inline;
+    margin-right: 10px;
+}
+</style>
+<body>
+<div class="header">
+    <img src="{% static 'images/logotipo.png' %}" alt="Logo" class="logo-img">
+</div>
+    <div class="container">
+    <h1>Clase Registrada Exitosamente</h1>
+    <div class="summary">
+        <p>A continuación se muestra un informe de la clase registrada:</p>
+        <ul>
+            <li><strong>Carrera:</strong> {{ clase.carrera }}</li>
+            <li><strong>Curso:</strong> {{ clase.curso }}</li>
+            <li><strong>Semestre:</strong> {{ clase.semestre }}</li>
+            <li><strong>Materia:</strong> {{ clase.materia }}</li>
+              <li><strong>Unidades:</strong>
+                <span class="inline-list">
+                    {% for unidad in clase.unidades.all %}
+                        {{ unidad.nombre }}
+                        {% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </span>
+            </li>
+            <li><strong>Contenidos:</strong>
+                <span class="inline-list">
+                    {% for contenido in clase.contenidos.all %}
+                        {{ contenido.nombre }}
+                        {% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </span>
+            </li>
+            <li><strong>Número de Clase:</strong> {{ clase.numero_clase }}</li>
+            <li><strong>Fecha:</strong> {{ clase.fecha }}</li>
+            <li><strong>Hora de Inicio:</strong> {{ clase.hora_inicio }}</li>
+            <li><strong>Hora de Fin:</strong> {{ clase.hora_fin }}</li>
+            <li><strong>Tipo de Clase:</strong> {{ clase.get_tipo_clase_display }}</li>
+            <li><strong>Número de Alumnos:</strong> {{ clase.numero_alumno }}</li>
+            <li><strong>Metodología:</strong> {{ clase.metodologia }}</li>
+        </ul>
+    <p>¡Gracias por registrar la clase!</p>
+
+</body>
+</html>

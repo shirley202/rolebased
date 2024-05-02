@@ -48,14 +48,33 @@ class SignUpForm(UserCreationForm):
             }
         )
     )
+    first_name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control"
+            }
+        )
+    )
+    last_name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control"
+            }
+        )
+    )
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2', 'is_admin', 'is_docente', 'is_funcionario')
+        fields = ('first_name','last_name','username', 'email', 'password1', 'password2', 'is_admin', 'is_docente', 'is_funcionario')
 
 class ClaseForm(forms.ModelForm):
     unidades = forms.ModelMultipleChoiceField(queryset=Unidad.objects.all(), widget=forms.CheckboxSelectMultiple(attrs={'class': 'form-check-input'}), required=True)
     contenidos = forms.ModelMultipleChoiceField(queryset=Contenido.objects.all(), widget=forms.CheckboxSelectMultiple(attrs={'class': 'form-check-input'}), required=True)
+
+    def __init__(self, *args, **kwargs):
+        super(ClaseForm, self).__init__(*args, **kwargs)
+        # Set initial value for carrera field
+        self.fields['carrera'].initial = 'Ingeniería en Informática'
 
     class Meta:
         model = Clase

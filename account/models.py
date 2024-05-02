@@ -57,6 +57,7 @@ class Contenido(models.Model):
 
 class Clase(models.Model):
         carrera = models.CharField(max_length=100)
+        usuario = models.ForeignKey(User, on_delete=models.CASCADE)
         curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
         semestre=models.ForeignKey(Semestre, on_delete=models.CASCADE)
         materia = models.ForeignKey(Materia, on_delete=models.CASCADE)

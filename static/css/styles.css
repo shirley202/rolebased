@@ -27,7 +27,7 @@
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #28a745; /* Cambiar el color de fondo a verde */
+    background-color: #3069b1; /* Cambiar el color de fondo a verde */
     color: #fff; /* Cambiar el color del texto a blanco */
     border: none;
     border-radius: 3px;
@@ -35,5 +35,105 @@
 }
 
 .btn-submit:hover {
-    background-color: #218838; /* Cambiar el color de fondo a un tono más oscuro al pasar el ratón */
+    background-color:#00008B; /* Cambiar el color de fondo a un tono más oscuro al pasar el ratón */
+}
+/* Estilos para la tabla */
+.clases-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Estilos para las celdas de la tabla */
+.clases-table th, #clases-table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+/* Estilos para las celdas de encabezado */
+.clases-table th {
+    background-color: #f2f2f2;
+    color: #333333;
+}
+
+/* Estilos para las filas impares */
+.clases-table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Estilos para las filas al pasar el cursor sobre ellas */
+.lases-table tr:hover {
+    background-color: #dddddd;
+}
+
+
+/* Estilo para el formulario */
+.form-block {
+    background-color: #fff; /* Color de fondo */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.form-block h1 {
+    font-size: 28px; /* Tamaño de la fuente para el título */
+    color: #333; /* Color del texto */
+    margin-bottom: 20px; /* Margen inferior */
+}
+
+.form-block label {
+    font-size: 16px; /* Tamaño de la fuente para las etiquetas */
+    color: #666; /* Color del texto */
+}
+
+.form-block .form-group {
+    margin-bottom: 20px; /* Margen inferior para los grupos de formulario */
+}
+
+.form-block .btn {
+    width: 100%; /* Ancho completo */
+}
+/* Estilo para los botones */
+.btn-primary {
+    background-color: #3069b1; /* Azul */
+    border-color: #3069b1; /* Color del borde igual al color de fondo */
+    color: #fff; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transición suave */
+}
+
+.btn-primary:hover {
+    background-color: #218838; /* Cambia el color de fondo a un tono más oscuro al pasar el ratón */
+    border-color: #218838; /* Cambia el color del borde al pasar el ratón */
+    color: #fff; /* Cambia el color del texto al pasar el ratón */
+}
+.btn-primary a {
+    color: #fff; /* Color del texto */
+    text-decoration: none; /* Quita la subrayado del enlace */
+}
+.content {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Toma el 100% de la altura de la ventana */
+}
+.contents .form-block span {
+    display: block; /* Convertir en bloque para que pueda centrarse */
+    text-align: center; /* Centrar el texto horizontalmente */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+/* Estilo para el enlace "Forgot Password" */
+.forgot-pass {
+    color: #3069b1; /* Color azul */
+    text-decoration: none; /* Quita la subrayado del enlace */
+}
+
+.forgot-pass:hover {
+    color: #218838; /* Cambia el color a un tono más oscuro al pasar el ratón */
+}
+.contents .form-block h1 {
+    text-align: center; /* Centrar el texto horizontalmente */
+    margin-bottom: 20px; /* Espacio inferior */
 }

@@ -8,3 +8,4 @@ admin.site.register(Semestre)
 admin.site.register(Materia)
 admin.site.register(Unidad)  # Corrección del nombre del modelo
 admin.site.register(Contenido)
+

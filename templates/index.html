@@ -1,57 +1,91 @@
 <!doctype html>
 {% load static %}
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
-
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-
     <!-- Style -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <style>
+        .header {
+            background-color: #2b2b2b; /* Color de fondo */
+            padding: 30px; /* Ajusta el margen interno */
+            text-align: center; /* Alineación del texto en el centro */
+            color: #fff; /* Color del texto */
+            height: 140px; /* Altura del encabezado */
+            display: flex; /* Usa flexbox */
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center; /* Centra verticalmente
+        }
+
+        .login-content {
+            margin-top: 50px; /* Margen superior para separar el contenido del formulario del encabezado */
+        }
+        .contents {
+            margin-top: -250px; /* Ajusta el margen superior para separar el contenido del formulario del encabezado */
+        }
+
+        .logo-img {
+            max-height: 100px; /* Altura máxima de la imagen */
+            width: auto; /* Ancho automático para mantener la proporción */
+            margin-right: 500px;
+
+
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Color oscurecido del botón */
+            border-color: #0056b3; /* Color oscurecido del borde del botón */
+        }
+
+
+    </style>
 
     <title>Multiple user login</title>
-  </head>
-  <body>
-  <div class="content">
+</head>
+<body>
+
+<div class="header">
+    <img src="{% static 'images/logotipo.png' %}" alt="Logo" class="logo-img">
+</div>
+
+<div class="content">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6 contents">
-          <div class="row justify-content-center">
-            <div class="col-md-12">
-              <div class="form-block">
-                  <div class="mb-4">
-                      <h1>Bienvenido </h1>
-                  </div>
-                  <label>Acceder a cuenta</label>
-                  <div class="form-group last mb-4">
-                      <div><button class="btn btn-pill text-white btn-block btn-primary"><a href="{% url 'login_view' %}">login</a></button></div>
-                  </div>
-                  <label>Registrar nuevo usuario</label>
-                  <div class="form-group last mb-4">
-                      <div><button class="btn btn-pill text-white btn-block btn-primary"><a href="{% url 'register' %}">register</a></button></div>
-                  </div>
-              </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6 contents">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="form-block">
+                            <div class="mb-4">
+                                <h1>Bienvenido </h1>
+                            </div>
+                            <label>Acceder a cuenta</label>
+                            <div class="form-group last mb-4">
+                                <div><button class="btn btn-pill text-white btn-block btn-primary"><a href="{% url 'login_view' %}">Login</a></button></div>
+                            </div>
+                            <label>Registrar nuevo usuario</label>
+                            <div class="form-group last mb-4">
+                                <div><button class="btn btn-pill text-white btn-block btn-primary"><a href="{% url 'register' %}">Registrar</a></button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-
         </div>
-
-      </div>
     </div>
-  </div>
+</div>
 
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
 
-    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
-  </body>
+</body>
 </html>
