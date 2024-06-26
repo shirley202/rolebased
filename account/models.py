@@ -23,7 +23,7 @@ class Semestre(models.Model):
 
 
 class Materia(models.Model):
-    nombre = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=255)
     semestre = models.ForeignKey(Semestre, on_delete=models.CASCADE)
 
     def __str__(self):

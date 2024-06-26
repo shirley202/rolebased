@@ -91,3 +91,6 @@ class ClaseForm(forms.ModelForm):
             'numero_alumno': forms.NumberInput(attrs={'class': 'form-control'}),
             'metodologia': forms.TextInput(attrs={'class': 'form-control'}),
         }
+
+class DocumentForm(forms.Form):
+    docfile = forms.FileField(label='Seleccionar un archivo Word')

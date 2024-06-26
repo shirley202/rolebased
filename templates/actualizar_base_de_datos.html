@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Base de Datos desde Plan Semestral</title>
+</head>
+<body>
+    <h1>Actualizar Base de Datos desde Plan Semestral</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="archivo_plan_semestral" accept=".docx">
+        <button type="submit">Actualizar Base de Datos</button>
+    </form>
+</body>
+</html>

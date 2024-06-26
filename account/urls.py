@@ -11,5 +11,10 @@ urlpatterns = [
 path('confirmation_clase/', views.confirmation_clase, name='confirmation_clase'),
     path('informes/', views.informes_clases, name='informes_clases'),
 path('obtener_unidades_y_contenidos/', views.obtener_unidades_y_contenidos, name='obtener_unidades_y_contenidos'),
+path('buscar_clases/', views.buscar_clases, name='buscar_clases'),
+path('upload/', views.upload_document, name='upload_document'),
+    path('ver-asistencia-docente/', views.ver_asistencia_docente, name='ver_asistencia_docente'),
+
+
 
 ]

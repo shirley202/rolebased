@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'Role_based_login_system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',      # Motor de base de datos MySQL
-        'NAME': 'prueba',      # Nombre de la base de datos
+        'NAME': 'prueba2',      # Nombre de la base de datos
         'USER': 'root',                   # Usuario de MySQL
         'PASSWORD': '123456',            # Contraseña de MySQL
         'HOST': 'localhost',                       # Host de la base de datos (puede ser una dirección IP)

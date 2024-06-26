@@ -87,6 +87,18 @@
 <body>
 <div class="header">
     <img src="{% static 'images/logotipo.png' %}" alt="Logo" class="logo-img">
+
+    <form method="GET" action="{% url 'buscar_clases' %}">
+    <input type="text" name="q" placeholder="Buscar clase...">
+    <button type="submit">Buscar</button>
+</form>
+
+</div>
+
+<div class="form-section">
+    <form method="GET" action="{% url 'ver_asistencia_docente' %}">
+        <button type="submit">Ver Asistencia Docente</button>
+    </form>
 </div>
     <div class="container">
         <h1>Asistencia y Desarrollo de Clases del Docente</h1>
