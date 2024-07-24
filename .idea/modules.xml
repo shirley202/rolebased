@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Role_based_login_system.iml" filepath="$PROJECT_DIR$/.idea/Role_based_login_system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sistema_basado_en_roles.iml" filepath="$PROJECT_DIR$/.idea/sistema_basado_en_roles.iml" />
     </modules>
   </component>
 </project>

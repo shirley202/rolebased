@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asistencia Docentes </title>
+    <title>Asistencia Docentes</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <style>
         body {
@@ -47,16 +47,57 @@
         tr:hover {
             background-color: #f9f9f9;
         }
+
+        /* Estilos para los formularios */
+        .search-form {
+            margin-bottom: 10px;
+        }
+
+        .search-form input[type="text"] {
+            padding: 8px;
+            width: 200px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .search-form button {
+            padding: 8px 12px;
+            background-color:  #3069B1;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .search-form button:hover {
+            background-color: #0056b3; /* Color de fondo azul más oscuro al pasar el mouse */
+            border-color: #0056b3; /* Color del borde azul más oscuro al pasar el mouse */
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Asistencia de los Docentes</h1>
+
+        <!-- Formulario de búsqueda por docente -->
+        <form class="search-form" method="GET" action="{% url 'buscar_clases2' %}">
+            <input type="text" name="q" placeholder="Buscar por docente...">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <!-- Formulario de búsqueda por materia -->
+        <form class="search-form" method="GET" action="{% url 'buscar_clases_por_materia2' %}">
+            <input type="text" name="materia" placeholder="Buscar por materia...">
+            <button type="submit">Buscar</button>
+        </form>
+
         <table class="table" id="asistencia-table">
             <thead>
                 <tr>
                     <th>Docente</th>
                     <th>Fecha</th>
+                     <th>Materia</th>
                     <th>Hora de Inicio</th>
                     <th>Hora de Fin</th>
                 </tr>
@@ -66,6 +107,7 @@
                 <tr>
                     <td>{{ clase.usuario.get_full_name }}</td>
                     <td>{{ clase.fecha }}</td>
+                    <td>{{ clase.materia }}</td>
                     <td>{{ clase.hora_inicio }}</td>
                     <td>{{ clase.hora_fin }}</td>
                 </tr>

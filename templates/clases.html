@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registros de Clases</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-       <style>
+    <style>
         /* Estilo para el título */
         h1 {
             color: #fff;
@@ -19,29 +19,28 @@
 
         /* Estilo para la tabla */
         table {
-    color: #000; /* Color de texto negro */
-    font-size: 14px;
-    table-layout: fixed;
-    border-collapse: collapse;
-    background-color: #f0f0f0; /* Color de fondo gris claro */
-    width: 1200%; /* Cambia el ancho de la tabla según sea necesario */
-    max-width: 1400px; /* Establece un ancho máximo */
-    margin: 0 auto; /* Centra la tabla en la página */
-    margin-bottom: 20px; /* Espacio entre el título y la tabla */
-}
+            color: #000; /* Color de texto negro */
+            font-size: 14px;
+            table-layout: fixed;
+            border-collapse: collapse;
+            background-color: #f0f0f0; /* Color de fondo gris claro */
+            width: 100%; /* Ancho completo de la tabla */
+            max-width: 1400px; /* Establece un ancho máximo */
+            margin: 0 auto; /* Centra la tabla en la página */
+            margin-bottom: 20px; /* Espacio entre el título y la tabla */
+        }
 
         /* Estilos para las celdas del encabezado */
         th {
-    padding: 10px; /* Espacio alrededor del texto */
-    font-weight: 700; /* Grosor de la fuente */
-    text-transform: uppercase; /* Transformar el texto a mayúsculas */
-    background-color: #ccc; /* Color de fondo gris */
-    white-space: normal; /* Permitir el ajuste automático del texto */
+            padding: 10px; /* Espacio alrededor del texto */
+            font-weight: 700; /* Grosor de la fuente */
+            text-transform: uppercase; /* Transformar el texto a mayúsculas */
+            background-color: #ccc; /* Color de fondo gris */
+            white-space: normal; /* Permitir el ajuste automático del texto */
             max-width: 2000px; /* Ancho máximo de las celdas */
-    min-width: 1000px; /* Ancho mínimo de las celdas */
+            min-width: 1000px; /* Ancho mínimo de las celdas */
+        }
 
-
-}
         /* Estilos para las celdas de la tabla */
         td {
             padding: 15px;
@@ -52,9 +51,12 @@
             cursor: pointer;
             transition: background-color 0.3s ease; /* Transición suave */
         }
+
         tbody tr:hover {
             background: rgba(48, 105, 177, 0.4); /* Cambiar a azul al pasar el ratón */
         }
+
+        /* Estilo para el encabezado */
         .header {
             background-color: #2b2b2b; /* Color de fondo */
             padding: 30px; /* Ajusta el margen interno */
@@ -63,24 +65,70 @@
             height: 115px; /* Altura del encabezado */
             display: flex; /* Usa flexbox */
             justify-content: center; /* Centra horizontalmente */
-            align-items: center; /* Centra verticalmente
+            align-items: center; /* Centra verticalmente */
+            flex-wrap: wrap; /* Envuelve los elementos cuando no caben en una sola línea */
         }
 
-        .container {
-            margin-top: 5px; /* Margen superior para separar el contenido del formulario del encabezado */
+        /* Estilo para los formularios */
+        .search-form {
+            margin-bottom: 10px; /* Espacio inferior entre formularios */
+            flex: 1; /* Ocupa el espacio disponible */
+            max-width: 400px; /* Ancho máximo del formulario */
+            text-align: center; /* Alineación del texto en el centro */
         }
-        th {
-        font-size: 10px; /* Ajusta el tamaño del texto */
-        padding: 15px; /* Ajusta el padding para agregar espacio alrededor del texto */
-    }
 
+        /* Estilo para los botones */
+        .search-button {
+            margin-top: 10px; /* Espacio superior entre botones */
+            margin-bottom: 10px; /* Espacio inferior entre botones */
+            background-color: #3069B1; /* Color de fondo azul */
+            color: white; /* Color del texto blanco */
+            border: none; /* Sin borde */
+            padding: 10px 20px; /* Padding interno */
+            text-align: center; /* Alineación del texto en el centro */
+            text-decoration: none; /* Sin decoración de texto */
+            display: inline-block; /* Bloque en línea */
+            font-size: 14px; /* Tamaño de fuente */
+            cursor: pointer; /* Cursor de puntero */
+            transition: background-color 0.3s; /* Transición suave */
+        }
 
+        /* Estilo hover para los botones */
+        .search-button:hover {
+            background-color: #0056b3; /* Color de fondo azul más oscuro al pasar el mouse */
+            border-color: #0056b3; /* Color del borde azul más oscuro al pasar el mouse */
+        }
 
-        .logo-img {
-            max-height: 100px; /* Altura máxima de la imagen */
-            width: auto; /* Ancho automático para mantener la proporción */
-            margin-right: 500px;
+        /* Estilo para el botón de cerrar sesión */
+        .logout-button {
+            margin-top: 10px; /* Espacio superior entre botones */
+            margin-bottom: 10px; /* Espacio inferior entre botones */
+            background-color: #3069B1; /* Color de fondo azul */
+            color: white; /* Color del texto blanco */
+            border: none; /* Sin borde */
+            padding: 10px 20px; /* Padding interno */
+            text-align: center; /* Alineación del texto en el centro */
+            text-decoration: none; /* Sin decoración de texto */
+            display: inline-block; /* Bloque en línea */
+            font-size: 14px; /* Tamaño de fuente */
+            cursor: pointer; /* Cursor de puntero */
+            transition: background-color 0.3s; /* Transición suave */
+        }
 
+        /* Estilo hover para el botón de cerrar sesión */
+        .logout-button:hover {
+            background-color: #0056b3; /* Color de fondo azul más oscuro al pasar el mouse */
+        }
+
+        /* Estilo para el contenedor de botones */
+        .button-container {
+            display: flex;
+            justify-content: center; /* Centra los botones horizontalmente */
+            margin-bottom: 20px; /* Espacio inferior entre botones y la tabla */
+        }
+
+        .button-container form {
+            margin-right: 10px; /* Espacio entre los botones */
         }
     </style>
 </head>
@@ -88,70 +136,86 @@
 <div class="header">
     <img src="{% static 'images/logotipo.png' %}" alt="Logo" class="logo-img">
 
-    <form method="GET" action="{% url 'buscar_clases' %}">
-    <input type="text" name="q" placeholder="Buscar clase...">
-    <button type="submit">Buscar</button>
-</form>
+    <div class="button-container">
+        <!-- Formulario de búsqueda por docente -->
+        <form method="GET" action="{% url 'buscar_clases' %}">
+            <input type="text" name="q" placeholder="Buscar clase...">
+            <button type="submit" class="search-button">Buscar por docente</button>
+        </form>
 
+        <!-- Formulario de búsqueda por materia -->
+        <form method="GET" action="{% url 'buscar_clases_por_materia' %}">
+            <input type="text" name="materia" placeholder="Buscar por materia...">
+            <button type="submit" class="search-button">Buscar por materia</button>
+        </form>
+
+        <!-- Formulario de cierre de sesión -->
+        <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="logout-button">Cerrar sesión</button>
+        </form>
+    </div>
 </div>
 
 <div class="form-section">
     <form method="GET" action="{% url 'ver_asistencia_docente' %}">
-        <button type="submit">Ver Asistencia Docente</button>
+        <button type="submit" class="search-button">Ver Asistencia Docente</button>
     </form>
 </div>
-    <div class="container">
-        <h1>Asistencia y Desarrollo de Clases del Docente</h1>
-        <table class="table" id="clases-table" >
-            <thead>
-                <tr>
-                    <th>Docente</th>
-                    <th>Carrera</th>
-                    <th>Curso</th>
-                    <th>Semestre</th>
-                    <th>Materia</th>
-                    <th>Unidad</th> <!-- Nueva columna para mostrar la unidad -->
-                    <th>Contenido</th> <!-- Nueva columna para mostrar el contenido -->
-                    <th>Número de Clase</th>
-                    <th>Fecha</th>
-                    <th>Hora de Inicio</th>
-                    <th>Hora de Fin</th>
-                    <th>Tipo de Clase</th>
-                    <th>Número de Alumnos</th>
-                    <th>Metodología</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for clase in clases %}
-                <tr>
-                    <td>{{ clase.usuario.first_name }} {{ clase.usuario.last_name }}</td>
-                    <td>{{ clase.carrera }}</td>
-                    <td>{{ clase.curso }}</td>
-                    <td>{{ clase.semestre }}</td>
-                    <td>{{ clase.materia }}</td>
-                    <td>
-                        {% for unidad in clase.unidades.all %}
-                            {{ unidad.nombre }}
-                            {% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                    </td> <!-- Acceder al nombre de la unidad -->
-                    <td>
-                        {% for contenido in clase.contenidos.all %}
-                            {{ contenido.nombre }}
-                            {% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                    </td>
-                    <td>{{ clase.numero_clase }}</td>
-                    <td>{{ clase.fecha }}</td>
-                    <td>{{ clase.hora_inicio }}</td>
-                    <td>{{ clase.hora_fin }}</td>
-                    <td>{{ clase.tipo_clase }}</td>
-                    <td>{{ clase.numero_alumno }}</td>
-                    <td>{{ clase.metodologia }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+
+<div class="container">
+    <h1>Asistencia y Desarrollo de Clases del Docente</h1>
+    <table class="table" id="clases-table">
+        <thead>
+            <tr>
+                <th>Docente</th>
+                <th>Carrera</th>
+                <th>Curso</th>
+                <th>Semestre</th>
+                <th>Materia</th>
+                <th>Unidad</th> <!-- Nueva columna para mostrar la unidad -->
+                <th>Contenido</th> <!-- Nueva columna para mostrar el contenido -->
+                <th>Número de Clase</th>
+                <th>Fecha</th>
+                <th>Hora de Inicio</th>
+                <th>Hora de Fin</th>
+                <th>Tipo de Clase</th>
+                <th>Número de Alumnos</th>
+                <th>Metodología</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for clase in clases %}
+            <tr>
+                <td>{{ clase.usuario.first_name }} {{ clase.usuario.last_name }}</td>
+                <td>{{ clase.carrera }}</td>
+                <td>{{ clase.curso }}</td>
+                <td>{{ clase.semestre }}</td>
+                <td>{{ clase.materia }}</td>
+                <td>
+                    {% for unidad in clase.unidades.all %}
+                        {{ unidad.nombre }}
+                        {% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </td> <!-- Acceder al nombre de la unidad -->
+                <td>
+                    {% for contenido in clase.contenidos.all %}
+                        {{ contenido.nombre }}
+                        {% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+                <td>{{ clase.numero_clase }}</td>
+                <td>{{ clase.fecha }}</td>
+                <td>{{ clase.hora_inicio }}</td>
+                <td>{{ clase.hora_fin }}</td>
+                <td>{{ clase.tipo_clase }}</td>
+                <td>{{ clase.numero_alumno }}</td>
+                <td>{{ clase.metodologia }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
 </body>
 </html>

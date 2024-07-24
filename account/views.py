@@ -172,6 +172,22 @@ def buscar_clases(request):
 
     # Renderizar el template con las clases encontradas
     return render(request, 'clases.html', {'clases': clases})
+
+
+
+def buscar_clases_por_materia(request):
+    # Obtener el término de búsqueda de materia del parámetro GET
+    materia = request.GET.get('materia')
+
+    # Si no hay término de búsqueda, mostrar todas las clases
+    if not materia:
+        clases = Clase.objects.all()
+    else:
+        # Filtrar las clases por nombre de materia
+        clases = Clase.objects.filter(materia__nombre__icontains=materia)
+
+    # Renderizar el template con las clases encontradas
+    return render(request, 'clases.html', {'clases': clases})
 def extract_units_and_contents(text):
     units = []
     contents = {}
@@ -303,4 +319,54 @@ def ver_asistencia_docente(request):
     if hora_fin:
         clases = clases.filter(hora_fin__lte=hora_fin)
 
+    return render(request, 'ver_asistencia.html', {'clases': clases})
+
+
+def buscar_clases_por_materia2(request):
+    # Obtener el término de búsqueda de materia del parámetro GET
+    materia = request.GET.get('materia')
+
+    # Si no hay término de búsqueda, mostrar todas las clases
+    if not materia:
+        clases = Clase.objects.all()
+    else:
+        # Filtrar las clases por nombre de materia
+        clases = Clase.objects.filter(materia__nombre__icontains=materia)
+
+    # Renderizar el template con las clases encontradas
+    return render(request, 'ver_asistencia.html', {'clases': clases})
+
+def buscar_clases2(request):
+    # Obtener el término de búsqueda del parámetro GET
+    query = request.GET.get('q')
+    print("Término de búsqueda:", query)
+
+    # Si no hay término de búsqueda, mostrar todas las clases
+    if not query:
+        clases = Clase.objects.all()
+    else:
+        # Dividir el término de búsqueda en nombre y apellido
+        nombres = query.split()
+
+        # Si se proporcionan tanto el nombre como el apellido en el término de búsqueda
+        if len(nombres) == 2:
+            # Filtrar las clases por nombre y apellido
+            clases = Clase.objects.filter(
+                usuario__first_name__icontains=nombres[0],
+                usuario__last_name__icontains=nombres[1]
+            )
+        else:
+            # Si no se proporcionan tanto el nombre como el apellido, buscar solo por nombre de usuario
+            usuario = User.objects.filter(username=query).first()
+
+            if usuario:
+                # Filtrar las clases asociadas al usuario encontrado
+                clases = Clase.objects.filter(usuario=usuario)
+            else:
+                # Si no se encuentra ningún usuario con ese nombre de usuario, devolver un conjunto vacío de clases
+                clases = Clase.objects.none()
+
+        print("Clases filtradas:", clases)
+
+    # Renderizar el template con las clases encontradas
     return render(request, 'ver_asistencia.html', {'clases': clases})
